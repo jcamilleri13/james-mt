@@ -1,8 +1,6 @@
 <script lang="ts">
   export let back: string
   export let breadcrumbs: string[] = []
-
-  import { browser } from '$app/env'
 </script>
 
 <header>
@@ -11,9 +9,6 @@
     {#each breadcrumbs as breadcrumb}
       <span>{breadcrumb}</span>
     {/each}
-
-    <!-- TODO: There should be a cleaner way to do this. -->
-    {#if browser}<span>{document.title}</span>{/if}
   </div>
 </header>
 
@@ -26,16 +21,18 @@
   }
 
   .back {
+    display: block;
     margin-right: var(--space);
 
     color: var(--black);
     font-weight: bold;
     text-decoration: none;
-    transition: color var(--transition-fast), scale var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-fast);
 
     &:hover {
       color: var(--orange);
-      transform: scale(1.01);
+      background: none;
+      transform: scale(1.05);
     }
   }
 

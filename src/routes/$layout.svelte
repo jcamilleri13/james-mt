@@ -6,7 +6,20 @@
     const { page } = props
 
     const isPortfolioLandingPage = page.path === '/portfolio'
-    const breadcrumbs = page.path.split('/').slice(0, -1)
+    const breadcrumbs = page.path.split('/')
+
+    // A bit ham-fisted, until I figure out how to get the page metadata here.
+    const pageName = breadcrumbs.pop().split('-')
+      .map(word => {
+        // Handle contractions.
+        if (['t', 'd', 'll', 's', 've'].includes(word)) {
+          return `’${word}`
+        }
+
+        return ` ${word}`
+      }).join('')
+
+    breadcrumbs.push(pageName)
 
     return {
       props: {
@@ -29,7 +42,10 @@
   <slot />
 </main>
 <footer>
-  <span>Built with SvelteKit (beta). Source on <a href="https://github.com/jcamilleri13/james-mt">GitHub</a></span>
+  <div>
+    <div>Built with SvelteKit (beta). Source on <a href="https://github.com/jcamilleri13/james-mt">GitHub</a></div>
+    <div>This website will not function correctly on Internet Explorer, please use the latest version of Firefox, Chrome, Safari or Edge.</div>
+  </div>
   <span class="signature">james camilleri</span>
 </footer>
 
@@ -41,6 +57,11 @@
     display: flex;
     font-size: 0.7rem;
     justify-content: space-between;
+    align-items: flex-end;
+
+    div > div:first-child {
+      margin-bottom: 0.4rem;
+    }
 
     .signature {
       color: var(--orange);
