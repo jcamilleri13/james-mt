@@ -10,8 +10,10 @@ function wrapPortfolioContent () {
     const gallery = rawNodes
       .filter(node => node.value.includes('<Gallery'))[0]
 
-    const content = tree.children.filter(node => node.type !== 'raw')
-    const wrappedContent = {
+    const content = tree.children
+      .filter(node => node.type !== 'raw' || !node.value.includes('<Gallery'))
+
+      const wrappedContent = {
       type: 'element',
       tagName: 'div',
       properties: { class: 'content' },

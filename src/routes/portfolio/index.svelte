@@ -1,6 +1,8 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit'
 
+  import TagList from '$lib/TagList/index.svelte'
+
   const posts = import.meta.glob('./**/*.md')
   const body = []
 
@@ -32,11 +34,7 @@
     <li>
       <a href="portfolio/{slug}">
           <div>{title}</div>
-          <div>
-            {#each tags as tag}
-              <span>#{tag}</span>
-            {/each}
-          </div>
+          <TagList tags={tags} />
       </a>
     </li>
   {/each}
@@ -54,15 +52,5 @@
     color: var(--black);
 
     :hover { color: var(--orange); }
-
-    span {
-      padding: 0.2rem 0.3rem;
-      font-size: 0.6rem;
-      color: var(--background);
-      background: var(--black);
-      border-radius: 1px;
-
-      &:not(:last-child) { margin-right: 0.3rem; }
-    }
   }
 </style>

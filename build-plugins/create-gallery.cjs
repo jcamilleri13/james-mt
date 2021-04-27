@@ -47,7 +47,8 @@ function importLocalImages (images, tree) {
   // TODO: Handle existing <script> tags, extract Gallery import.
   const scriptTag = '<script>\n'
     + imports.join('\n')
-    + '\nimport Gallery from "$lib/Gallery/index.svelte"\n'
+    + '\nimport Gallery from "$lib/Gallery/index.svelte"'
+    + '\nimport TagList from "$lib/TagList/index.svelte"\n'
     + '</script>'
 
   tree.children.unshift({
