@@ -1,7 +1,11 @@
 <script lang='ts'>
-  import type { Media } from './types'
+  interface MediaItem {
+    alt: string
+    showCaption: boolean
+    src: string
+  }
 
-  export let media: Media
+  export let media: MediaItem[][]
 </script>
 
 <style lang='scss'>
@@ -11,6 +15,7 @@
 
     .row {
       display: flex;
+      flex-direction: var(--row-direction);
 
       > * {
         &:not(:last-child) { margin-right: var(--space); }
