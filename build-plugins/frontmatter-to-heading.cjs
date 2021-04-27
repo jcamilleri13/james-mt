@@ -14,6 +14,9 @@ function frontmatterToHeading () {
         .indexOf('yaml') + 1
 
       tree.children.splice(headerIndex, 0, {
+        type: 'html',
+        value: `<svelte:head><title>${title}</title></svelte:head>`
+      }, {
         type: 'heading',
         depth: 1,
         children: [{ type: 'text', value: title }]
