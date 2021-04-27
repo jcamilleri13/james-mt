@@ -1,26 +1,30 @@
 <script lang="ts" context="module">
   import type { Load } from '@sveltejs/kit'
+  import Header from '$lib/components/Header.svelte'
 
-  export const load: Load = async ({ page }) => {
-    const isPortfolioPage = page.path === '/portfolio'
+  export const load: Load = async (props) => {
+    const { page } = props
+
+    const isPortfolioLandingPage = page.path === '/portfolio'
+    const breadcrumbs = page.path.split('/').slice(0, -1)
 
     return {
       props: {
-        isPortfolioPage
+        breadcrumbs,
+        isPortfolioLandingPage
       }
     }
   }
 </script>
 
 <script lang="ts">
-  import '../app.css'
+  import '../app.scss'
 
-  export let isPortfolioPage
+  export let breadcrumbs
+  export let isPortfolioLandingPage
 </script>
 
-<header>
-  {#if !isPortfolioPage}<a href="/">(back)</a>{/if}
-</header>
+<Header back={isPortfolioLandingPage ? null : '/'} {breadcrumbs} />
 <main>
   <slot />
 </main>
@@ -30,5 +34,5 @@
 
 <style lang="scss">
   main { flex: 1; }
-  header, main, footer { padding: var(--space); }
+  main, footer { padding: var(--space); }
 </style>
