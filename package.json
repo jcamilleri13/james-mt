@@ -8,12 +8,13 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
+    "@sveltejs/adapter-netlify": "^1.0.0-next.10",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "camel-case": "^4.1.2",
-    "eslint-plugin-svelte3": "^3.2.0",
     "eslint": "^7.22.0",
+    "eslint-plugin-svelte3": "^3.2.0",
     "javascript-stringify": "^2.1.0",
     "mdsvex": "^0.9.0",
     "rehype-autolink-headings": "^5.0.1",
@@ -21,8 +22,8 @@
     "remark-abbr": "^1.4.1",
     "remark-github": "^10.0.1",
     "sass": "^1.32.11",
-    "svelte-preprocess": "^4.0.0",
     "svelte": "^3.29.0",
+    "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0",
     "vite": "^2.1.0"
