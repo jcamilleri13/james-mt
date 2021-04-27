@@ -29,10 +29,22 @@
   <slot />
 </main>
 <footer>
-  Built with SvelteKit (beta). Source on <a href="https://github.com/jcamilleri13/james-mt">GitHub</a>
+  <span>Built with SvelteKit (beta). Source on <a href="https://github.com/jcamilleri13/james-mt">GitHub</a></span>
+  <span class="signature">james camilleri</span>
 </footer>
 
 <style lang="scss">
   main { flex: 1; }
   main, footer { padding: var(--space); }
+
+  footer {
+    display: flex;
+    font-size: 0.7rem;
+    justify-content: space-between;
+
+    .signature {
+      color: var(--orange);
+      font-weight: bold;
+    }
+  }
 </style>
