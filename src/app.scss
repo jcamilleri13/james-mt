@@ -9,6 +9,18 @@
   --black: black;
   --orange: rgb(239, 125, 0);
   --background: rgb(247, 243, 243);
+
+  --grid-template-portfolio: calc(var(--column-width) * 2) 1fr;
+  --row-direction: row;
+
+  --transition-fast: 0.15s ease-in;
+}
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --grid-template-portfolio: 100%;
+    --row-direction: column;
+  }
 }
 
 html {
@@ -29,4 +41,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+a {
+  &:visited {}
+  &:hover {}
+  &:active {}
+  &:focus-visible {}
 }
