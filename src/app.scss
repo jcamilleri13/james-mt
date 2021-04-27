@@ -30,6 +30,8 @@ html {
   font-size: 1.6em;
   line-height: 1.4;
 
+  font-variant-numeric: oldstyle-nums;
+
   background: var(--background);
 }
 
@@ -44,8 +46,30 @@ body {
 }
 
 a {
-  &:visited {}
-  &:hover {}
-  &:active {}
-  &:focus-visible {}
+  color: var(--black);
+  font-weight: 500;
+  background: transparent;
+
+  text-decoration: underline var(--orange) 0.2rem;
+  text-underline-offset: 0.3rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
+
+  &:visited { color: var(--orange); }
+
+  &:hover {
+    color: var(--black);
+    background: var(--orange);
+  }
+
+  &:focus {
+    color: var(--black);
+    background: var(--orange);
+    outline: none;
+
+    &:not(:focus-visible) { background: none; }
+  }
+}
+
+::selection {
+  background-color: var(--orange);
 }
