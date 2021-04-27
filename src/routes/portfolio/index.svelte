@@ -32,12 +32,11 @@
 
 <h1>portfolio</h1>
 <ul>
-  {#each posts as { title, slug, tags = [] }}
+  {#each posts as { description = '', title, slug, tags = [] }}
     <li>
-      <a href="portfolio/{slug}">
-          <div>{title}</div>
-          <TagList tags={tags} />
-      </a>
+      <a href="portfolio/{slug}">&nbsp;{title}&nbsp;</a>
+      <p>{description}</p>
+      <TagList tags={tags} />
     </li>
   {/each}
 </ul>
@@ -45,14 +44,17 @@
 <style lang="scss">
   li {
     padding: 0;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
     list-style: none;
   }
 
   a {
-    text-decoration: none;
-    color: var(--black);
+    display: inline-block;
+    margin-bottom: 0.2rem;
+  }
 
-    :hover { color: var(--orange); }
+  p {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.7rem;
   }
 </style>
