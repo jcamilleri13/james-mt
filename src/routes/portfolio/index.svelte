@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit'
 
-  import TagList from '$lib/TagList/index.svelte'
+  import TagList from '$lib/components/TagList.svelte'
 
   const posts = import.meta.glob('./**/*.md')
   const body = []
@@ -27,6 +27,8 @@
 <script>
   export let posts
 </script>
+
+<svelte:head><title>portfolio</title></svelte:head>
 
 <h1>portfolio</h1>
 <ul>
