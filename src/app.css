@@ -1,6 +1,14 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
 :root {
   --space: 2rem;
   --column-width: calc(100vw / 7);
+
+  --black: black;
+  --orange: rgb(239, 125, 0);
+  --background: rgb(247, 243, 243);
 }
 
 html {
@@ -10,5 +18,15 @@ html {
   font-size: 1.6em;
   line-height: 1.4;
 
-  background: rgb(247, 243, 243);
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+}
+
+#svelte {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
