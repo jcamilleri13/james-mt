@@ -17,6 +17,7 @@
 
 <div>
   {#each tags as tag}
-    <span>#{tag}</span>
+    <!-- Replace hyphens with non-breaking hypens. -->
+    <span>#{tag.replace('-', '‑')}</span>
   {/each}
 </div>
