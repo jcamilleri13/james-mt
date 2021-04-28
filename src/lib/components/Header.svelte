@@ -7,7 +7,7 @@
   {#if back}<a class="back" href={back}>←</a>{/if}
   <div class="breadcrumbs">
     {#each breadcrumbs as breadcrumb}
-      <span>{breadcrumb}</span>
+      <span>{decodeURI(breadcrumb)}</span>
     {/each}
   </div>
 </header>
