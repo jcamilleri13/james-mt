@@ -20,6 +20,8 @@ The concepts that inspired the logo were also used to create a general graphic d
   - ![sketches](./_assets/brainstorming-1.jpg)
     ![sketches](./_assets/brainstorming-3.jpg)
   - ![sketches](./_assets/brainstorming-2.jpg)
+  - ![typography](./_assets/designs-1.png)
+    ![colour](./_assets/designs-2.png)
   - ![:iframe:](https://vigorous-banach-528b70.netlify.app/)
   - ![mock-ups](./_assets/mockup-1.jpg)
     ![mock-ups](./_assets/mockup-2.jpg)
