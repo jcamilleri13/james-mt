@@ -27,20 +27,24 @@
     <div class="row">
       {#each row as item, j}
         <!-- <div class="wrapper" bind:clientHeight={itemHeights[i][j]}> -->
-        <div class={`wrapper ${['iframe', 'video'].includes(item.type) ? 'iframe' : ''}`}>
+        <div class="wrapper">
           {#if item.type === 'img'}
             <img src={item.src} alt={item.alt} />
           {:else if item.type === 'iframe'}
-            <iframe src={item.src} />
-            (Interactive element, original at <a href={item.src}>{item.src}</a>)
+            <div class="iframe-wrapper has-description">
+              <iframe src={item.src} />
+            </div>
+            <div class="description">(Embedded interactive element, original at <a href={item.src}>{item.src}</a>)</div>
           {:else if item.type === 'video'}
-            <iframe
-              src={`https://player.vimeo.com/video/${item.src}`}
-              width="640"
-              height="480"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen />
+            <div class="iframe-wrapper">
+              <iframe
+                src={`https://player.vimeo.com/video/${item.src}`}
+                width="640"
+                height="480"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen />
+            </div>
           {:else if item.type === 'component'}
             <svelte:component this={item.src}/>
           {/if}
@@ -77,8 +81,7 @@
 
         &:not(:last-child) { margin-right: calc(var(--space) / 2); }
 
-        &.iframe {
-          // border: dotted var(--black);
+        .iframe-wrapper {
           padding-bottom: 56.25%;
           position: relative;
           height: 0;
@@ -90,6 +93,21 @@
             width: 100%;
             height: 100%;
           }
+
+          &.has-description {
+            background: white;
+            border: solid var(--black);
+            border-radius: 1px 1px 0 0;
+          }
+        }
+
+        .description {
+          height: auto;
+          padding: 1rem;
+          background: var(--black);
+          border-radius: 0 0 1px 1px;
+          color: var(--background);
+          font-size: 0.7rem;
         }
 
         > * {
