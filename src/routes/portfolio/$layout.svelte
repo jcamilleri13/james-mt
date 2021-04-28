@@ -8,7 +8,7 @@
     grid-template-columns: var(--grid-template-portfolio);
     gap: calc(var(--space) * 2);
 
-    :global(p:first-of-type) { margin-top: 3rem; }
+    :global(.content p:first-of-type) { margin-top: 3rem; }
 
     :global(h1) { margin-bottom: 0; }
   }

@@ -30,7 +30,6 @@
 
 <svelte:head><title>portfolio</title></svelte:head>
 
-<h1>portfolio</h1>
 <ul>
   {#each posts as { description = '', title, slug, tags = [] }}
     <li>
@@ -42,6 +41,10 @@
 </ul>
 
 <style lang="scss">
+  ul {
+    margin: 0;
+    padding: 0;
+  }
   li {
     padding: 0;
     margin: 0 0 1.5rem 0;
