@@ -35,6 +35,10 @@ function generateGalleryComponent (galleryItems) {
         return { type: 'video', src: getVimeoId(item.url) }
       }
 
+      if (item.alt.toLowerCase() === ':component:') {
+        return { type: 'component', src: item.url }
+      }
+
       return { type: 'img', src: item.url, alt: item.alt }
     })
   )
@@ -43,17 +47,19 @@ function generateGalleryComponent (galleryItems) {
   return `<Gallery media={${stringifiedProps}} />`
 }
 
-function importLocalImages (images, tree) {
+function importLocalAssets (assets, tree) {
   const imports = []
 
-  images.forEach(row => {
-    row.forEach(image => {
-      const { url } = image
+  assets.forEach(row => {
+    row.forEach(asset => {
+      const { type, url } = asset
       if (!url.includes('./')) return
 
-      const name = camelCase(url)
+      const name = type === 'component'
+        ? url.split('/').slice(-1)
+        : camelCase(url)
 
-      image.url = name
+      asset.url = name
       imports.push(`import ${name} from '${url}'`)
     })
   })
@@ -79,7 +85,7 @@ function createGallery () {
       if (!isGalleryNode(node)) return
 
       const images = extractImages(node.children[0].children[1])
-      importLocalImages(images, tree)
+      importLocalAssets(images, tree)
 
       const gallery = generateGalleryComponent(images)
 

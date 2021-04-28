@@ -41,6 +41,8 @@
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen />
+          {:else if item.type === 'component'}
+            <svelte:component this={item.src}/>
           {/if}
         </div>
       {/each}
