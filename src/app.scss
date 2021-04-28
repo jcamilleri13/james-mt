@@ -39,10 +39,9 @@ body {
   margin: 0;
 }
 
-#svelte {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+iframe {
+  // outline: none;
+  border: none;
 }
 
 a {
@@ -72,4 +71,10 @@ a {
 
 ::selection {
   background-color: var(--orange);
+}
+
+#svelte {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

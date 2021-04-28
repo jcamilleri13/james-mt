@@ -9,6 +9,7 @@
     color: var(--background);
     background: var(--black);
     border-radius: 1px;
+    text-decoration: none;
 
     &:not(:last-child) { margin-right: 0.3rem; }
   }
