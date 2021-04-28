@@ -1,7 +1,9 @@
 <div class="wrapper">
   <div class="title">ridiculous obsessions, a custom typeface for arthaus</div>
   <div class="typeface">a b c d e f g h i j k l m n o p q r s t u v w x y z . , ; & ? ! :</div>
-  <div class="description">Typeface source at <a href="https://github.com/jcamilleri13/ridiculous-obsessions">https://github.com/jcamilleri13/ridiculous-obsessions</a></div>
+  <div class="description">
+    Typeface source at <a href="https://github.com/jcamilleri13/ridiculous-obsessions">https://github.com/jcamilleri13/ridiculous-obsessions</a>
+  </div>
 </div>
 
 <style lang="scss">
@@ -17,6 +19,13 @@
   }
 
   .title { margin-bottom: 1rem; }
-  .typeface { font-size: 4rem; }
   .description { font-family: circe-slab-a; }
+  .typeface {
+    font-size: 4rem;
+
+    // TODO: Remove hard-coded pixel width from here somehow.
+    @media screen and (max-width: 1000px) {
+      font-size: 1.5rem;
+    }
+  }
 </style>
