@@ -18,6 +18,10 @@
     padding: var(--space);
 
     font-size: 2rem;
+    // TODO: Remove hard-coding.
+    @media screen and (max-width: 1000px) {
+      font-size: 1rem;
+    }
   }
 
   .back {

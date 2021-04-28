@@ -27,16 +27,20 @@
     <div class="row">
       {#each row as item, j}
         <!-- <div class="wrapper" bind:clientHeight={itemHeights[i][j]}> -->
-        <div class={`wrapper ${item.type === 'iframe' ? 'iframe' : ''}`}>
+        <div class={`wrapper ${['iframe', 'video'].includes(item.type) ? 'iframe' : ''}`}>
           {#if item.type === 'img'}
             <img src={item.src} alt={item.alt} />
           {:else if item.type === 'iframe'}
             <iframe src={item.src} />
             (Interactive element, original at <a href={item.src}>{item.src}</a>)
           {:else if item.type === 'video'}
-            <vm-player controls>
-              <vm-vimeo video-id={item.src}></vm-vimeo>
-            </vm-player>
+            <iframe
+              src={`https://player.vimeo.com/video/${item.src}`}
+              width="640"
+              height="480"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen />
           {/if}
         </div>
       {/each}
@@ -61,10 +65,29 @@
         height: 100%;
         flex: 1 1 auto;
 
+        // TODO: Remove hard-coded pixel width from here somehow.
+        @media screen and (max-width: 1000px) {
+          &:not(:last-child) {
+            margin-right: 0 !important;
+            margin-bottom: calc(var(--space) / 2);
+          }
+        }
+
         &:not(:last-child) { margin-right: calc(var(--space) / 2); }
 
         &.iframe {
-          border: dotted var(--black);
+          // border: dotted var(--black);
+          padding-bottom: 56.25%;
+          position: relative;
+          height: 0;
+
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
         }
 
         > * {
