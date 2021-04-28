@@ -20,11 +20,19 @@ function unquoteSrc (string) {
   return string.replace(/src:'(?!http)(.*?)'/g, (_, match) => `src:${match}`)
 }
 
+function getVimeoId (url) {
+  return url.replace('https://vimeo.com/', '')
+}
+
 function generateGalleryComponent (galleryItems) {
   const galleryProps = galleryItems.map(
     row => row.map(item => {
       if (item.alt.toLowerCase() === ':iframe:') {
         return { type: 'iframe', src: item.url }
+      }
+
+      if (item.alt.toLowerCase() === ':video:') {
+        return { type: 'video', src: getVimeoId(item.url) }
       }
 
       return { type: 'img', src: item.url, alt: item.alt }

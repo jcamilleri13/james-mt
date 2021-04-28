@@ -1,5 +1,5 @@
 <script lang='ts'>
-  interface MediaItem {
+    interface MediaItem {
     alt?: string
     src: string
     type: 'img' | 'iframe'
@@ -33,6 +33,10 @@
           {:else if item.type === 'iframe'}
             <iframe src={item.src} />
             (Interactive element, original at <a href={item.src}>{item.src}</a>)
+          {:else if item.type === 'video'}
+            <vm-player controls>
+              <vm-vimeo video-id={item.src}></vm-vimeo>
+            </vm-player>
           {/if}
         </div>
       {/each}
