@@ -45,7 +45,7 @@ iframe {
 }
 
 a {
-  color: var(--black);
+  color: var(--orange);
   font-weight: 500;
   background: transparent;
 
@@ -65,7 +65,10 @@ a {
     background: var(--orange);
     outline: none;
 
-    &:not(:focus-visible) { background: none; }
+    &:not(:focus-visible) {
+      color: var(--orange);
+      background: none;
+    }
   }
 }
 

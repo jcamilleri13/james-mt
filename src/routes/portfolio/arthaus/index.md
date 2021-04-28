@@ -11,7 +11,7 @@ Once complete (to the extent that any branding process can ever really be consid
 **website**: https://www.arthaus.mt
 
 - GALLERY
-  - ![Logo](./_assets/logo.svg)
+  - ![:component:](./_assets/Logo.svelte)
   - ![Logo sketches (1)](./_assets/logo-sketches-1.jpg)
     ![Logo sketches (2)](./_assets/logo-sketches-2.jpg)
     ![Typeface sketches](./_assets/typeface-sketches.jpg)
