@@ -28,8 +28,8 @@ Some brand mock-ups put together by Matt.
 
 
 - GALLERY
-  - ![logo](./_assets/logo.svg)
-    ![rationale](./_assets/rationale.svg)
+  - ![:component:](./_assets/Logo.svelte)
+    ![:component:](./_assets/Rationale.svelte)
   - ![sketches](./_assets/brainstorming-1.png)
     ![sketches](./_assets/brainstorming-3.png)
   - ![sketches](./_assets/brainstorming-2.png)
