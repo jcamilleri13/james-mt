@@ -18,3 +18,4 @@ Once complete (to the extent that any branding process can ever really be consid
   - ![Logo construction](./_assets/construction.png)
     ![Icon](./_assets/icon.png)
   - ![:video:](https://vimeo.com/542417506)
+  - ![:component:](./_assets/Typeface.svelte)
