@@ -29,7 +29,9 @@
         <!-- <div class="wrapper" bind:clientHeight={itemHeights[i][j]}> -->
         <div class="wrapper">
           {#if item.type === 'img'}
-            <img src={item.src} alt={item.alt} />
+            <a href={item.src} target="_blank" rel="noopener noreferrer">
+              <img src={item.src} alt={item.alt} />
+            </a>
           {:else if item.type === 'iframe'}
             <div class="iframe-wrapper has-description">
               <iframe src={item.src} />
@@ -110,7 +112,9 @@
           font-size: 0.7rem;
         }
 
-        > * {
+        // TODO: Remove ugly hack for <img> tags nested in <a> tags
+        // once we have some sort of lightbox implementation.
+        > *, > * > * {
           height: 100%;
           width: 100%;
           object-fit: cover;
