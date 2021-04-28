@@ -21,7 +21,7 @@
 </style>
 
 <div>
-  {#each tags as tag}
+  {#each tags.sort() as tag}
     <!-- Replace hyphens with non-breaking hypens. -->
     <span>#{tag.replace('-', '‑')}</span>
   {/each}

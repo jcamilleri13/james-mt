@@ -1,6 +1,6 @@
 ---
 title: chilton’s collections
-tags: [generative-art, branding]
+tags: [generative-art, branding, code]
 description: generative artwork for business card branding
 ---
 
