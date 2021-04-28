@@ -17,15 +17,14 @@ function extractImages (list) {
 }
 
 function unquoteSrc (string) {
-  return string.replace(/src:'(.*?)'/g, (_, match) => `src:${match}`)
+  return string.replace(/src:'(?!http)(.*?)'/g, (_, match) => `src:${match}`)
 }
 
 function generateGalleryComponent (galleryItems) {
   const galleryProps = galleryItems.map(
     row => row.map(item => {
-      console.log(item)
       if (item.alt.toLowerCase() === ':iframe:') {
-        return { type: 'iframe', src: item.src }
+        return { type: 'iframe', src: item.url }
       }
 
       return { type: 'img', src: item.url, alt: item.alt }
