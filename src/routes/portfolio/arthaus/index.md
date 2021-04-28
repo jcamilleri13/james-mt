@@ -17,3 +17,4 @@ Once complete (to the extent that any branding process can ever really be consid
     ![Typeface sketches](./_assets/typeface-sketches.jpg)
   - ![Logo construction](./_assets/construction.png)
     ![Icon](./_assets/icon.png)
+  - ![:video:](https://vimeo.com/542417506)
