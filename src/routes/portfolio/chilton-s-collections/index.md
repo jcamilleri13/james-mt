@@ -13,5 +13,5 @@ Check out more of Chilton's Collections here: www.facebook.com/chiltonscollectio
   - ![Business card variations](./_assets/business-card-mockup.jpg)
   - ![Business cards](./_assets/business-cards.jpg)
     ![Tags](./_assets/tags.jpg)
-  - ![Generating floral designs with After Effects](./_assets/generator.png)
+  - ![Generating floral designs with After Effects](./_assets/generator.jpg)
   - ![:video:](https://vimeo.com/542605243)
