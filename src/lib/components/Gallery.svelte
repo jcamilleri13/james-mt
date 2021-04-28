@@ -1,40 +1,70 @@
 <script lang='ts'>
   interface MediaItem {
-    alt: string
-    showCaption: boolean
+    alt?: string
     src: string
+    type: 'img' | 'iframe'
   }
 
   export let media: MediaItem[][]
+  let rowHeights = Array(media.length).fill(100)
+  let itemHeights = Array(media.length).fill(0).map((_, i) => {
+    return Array(media[i].length).fill(700)
+  })
+
+  $: rowHeights = itemHeights.map(row => {
+    let rowheight = Infinity
+    row.forEach(height => {
+      console.log(height)
+      if (height < rowheight) rowheight = height
+    })
+
+    return rowheight
+  })
 </script>
 
-<style lang='scss'>
-  .gallery {
-    display: grid;
-    gap: var(--space);
-
-    .row {
-      display: flex;
-      flex-direction: var(--row-direction);
-
-      > * {
-        &:not(:last-child) { margin-right: var(--space); }
-
-        flex: 1;
-        width: 0;
-        max-width: calc(var(--column-width) * 3);
-        object-fit: contain;
-      }
-    }
-  }
-</style>
-
 <div class='gallery'>
-  {#each media as row}
+  {#each media as row, i}
+    <!-- <div class="row" style="max-height: {rowHeights[i]}px;"> -->
     <div class="row">
-      {#each row as item}
-        <img src={item.src} alt={item.alt} />
+      {#each row as item, j}
+        <!-- <div class="wrapper" bind:clientHeight={itemHeights[i][j]}> -->
+        <div class="wrapper">
+          {#if item.type === 'img'}
+            <img src={item.src} alt={item.alt} />
+          {:else if item.type === 'iframe'}
+            <iframe src={item.src} />
+          {/if}
+        </div>
       {/each}
     </div>
   {/each}
 </div>
+
+<style lang='scss'>
+  .gallery {
+    display: flex;
+    flex-direction: column;
+
+    > *:not(:last-child) { margin-bottom: calc(var(--space) / 2); }
+    .row {
+      display: flex;
+      flex-direction: var(--row-direction);
+      justify-content: flex-start;
+
+      width: 100%;
+
+      > .wrapper {
+        height: 100%;
+        flex: 1 1 auto;
+
+        &:not(:last-child) { margin-right: calc(var(--space) / 2); }
+
+        > *:not(svg) {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+</style>

@@ -20,9 +20,16 @@ function unquoteSrc (string) {
   return string.replace(/src:'(.*?)'/g, (_, match) => `src:${match}`)
 }
 
-function generateGalleryComponent (images) {
-  const galleryProps = images.map(
-    row => row.map(image => ({ src: image.url, alt: image.alt }))
+function generateGalleryComponent (galleryItems) {
+  const galleryProps = galleryItems.map(
+    row => row.map(item => {
+      console.log(item)
+      if (item.alt.toLowerCase() === ':iframe:') {
+        return { type: 'iframe', src: item.src }
+      }
+
+      return { type: 'img', src: item.url, alt: item.alt }
+    })
   )
 
   const stringifiedProps = unquoteSrc(stringify(galleryProps))
@@ -71,6 +78,12 @@ function createGallery () {
 
       node.type = 'html'
       node.value = gallery
+
+      delete node.ordered
+      delete node.start
+      delete node.spread
+      delete node.position
+      delete node.children
     }
   };
 }
